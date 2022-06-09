@@ -29,7 +29,7 @@ services:
         reservations:
           memory: 256M
     ports:
-      - 3030:3030
+      - 5050:5050
     working_dir: /src
     volumes:
       - ./badminton-api:/src
@@ -38,21 +38,21 @@ services:
     entrypoint: yarn start
 
     
-  frontend:
-    build:
-      context: ./badminton
-      target: dev
-    ports:
-      - 3000:3000
-    working_dir: /src
-    volumes:
-      - ./badminton:/src
-      - fbdata:/node_modules
-    container_name: frontend
-    entrypoint: yarn start
-    stdin_open: true
+#  frontend:
+#    build:
+#      context: ./badminton
+#      target: dev
+#    ports:
+#      - 3000:3000
+#    working_dir: /src
+#    volumes:
+#      - ./badminton:/src
+#      - fbdata:/node_modules
+#    container_name: frontend
+#    entrypoint: yarn start
+#    stdin_open: true
 
 volumes:
   pgdata:
-  fbdata:
+#  fbdata:
   bcdata:
