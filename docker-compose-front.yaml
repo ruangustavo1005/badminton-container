@@ -1,0 +1,18 @@
+version: "3.9"
+services:    
+  frontend:
+    build:
+      context: ./badminton
+      target: dev
+    ports:
+      - 3000:3000
+    working_dir: /src
+    volumes:
+      - ./badminton:/src
+      - fbdata:/node_modules
+    container_name: frontend
+    entrypoint: yarn start
+    stdin_open: true
+
+volumes:
+  fbdata:

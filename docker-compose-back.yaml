@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  backend:
+    build:
+      context: ./badminton-api
+      target: dev
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
+    ports:
+      - 5050:5050
+    working_dir: /src
+    volumes:
+      - ./badminton-api:/src
+      - bcdata:/node_modules
+    container_name: backend
+    entrypoint: yarn start
+
+volumes:
+  bcdata:
